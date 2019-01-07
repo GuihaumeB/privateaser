@@ -146,6 +146,18 @@ const actors = [{
   }]
 }];
 
-console.log(bars);
+function setPricing(bars, events){
+  events.forEach(event =>{
+    bars.forEach(bar =>{
+      if(event.barId === bar.id){
+        event.price = event.time*bar.pricePerHour + event.persons*bar.pricePerPerson;
+      }
+    });
+  });
+}
+
+setPricing(bars, events);
+
+//console.log(bars);
 console.log(events);
-console.log(actors);
+//console.log(actors);
