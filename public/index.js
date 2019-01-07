@@ -178,6 +178,14 @@ function setCommission(events){
   })
 }
 
+function deductible(events){
+  events.forEach(event =>{
+    if(event.options.deductibleReduction){
+      event.commission.privateaser += event.persons;
+    }
+  })
+}
+
 setPricing(bars, events);
 setCommission(events);
 
